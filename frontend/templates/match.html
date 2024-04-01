@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="static/css/style-preview.css"> -->
+    <!-- CSSの適用 -->
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.0/dist/semantic.min.css">
+    <title>ランクマッチ</title>
+    <style>
+        /*  TODO: できれば外付けのcssに移行させたい */
+        /* TODO: 使ってないCSSは消してもらっていいよー */
+
+        .container {
+            margin-top: 50px;
+            color: #fafafa;
+        }
+
+        .user_info {
+            margin-bottom: 50px;
+            text-align: center;
+            max-width: 70%;
+            margin: 0 auto;
+            background-color: grey;
+            border-radius: 10px;
+        }
+
+        .user_name {
+            padding: 40px 40px 0 40px;
+            /* 下に線を引きたい */
+        }
+
+        .border {
+            border-bottom: 1px solid #000;
+            margin-top: 40px;
+        }
+
+        .user_info h1 {
+            margin: 0 20px;
+            text-align: left;
+        }
+
+        .flex-row {
+            display: flex;
+            justify-content: space-between;
+            /* max-width: 70%;
+            margin: 0 auto; */
+            padding: 0 40px;
+
+        }
+
+        .flex-row li {
+            margin: 0 10px;
+            list-style: none;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        #matchResult {
+            background-color: #000;
+            margin-top: 50px;
+            text-align: center;
+            color: #fafafa;
+        }
+
+        #matchResult li {
+            margin: 30px 0;
+            list-style: none;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="ui secondary menu stackable header-sticky">
+            <a href="index.html" class="logo">
+                <img src="../static/images/logo.png">
+            </a>
+            <a class="item" href="index.html">トップページ</a>
+            <a class="item" href="match.html">ランクマッチ</a>
+            <a class="item" href="mypage.html">マイページ</a>
+            <a class="item" href="submit_result.html">結果登録ページ</a>
+            <a class="item" href="rules.html">ルール掲載ページ</a>
+            <div class="right menu">
+                <a class="ui item" href="index.html">ログアウト</a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- ユーザー情報を出力 -->
+            {% for rating in ratings %}
+            <div class="user_info">
+                <div class="user_name">
+                    <!-- TODO: マッチメンバーを上手いこと配置してほしい -->
+                    <h1>マッチメンバー</h1>
+                    
+                    <div class="border"></div>
+                </div>
+
+                <!-- TODO: ここのデザインも上手く変えて欲しい -->
+                <div class="insutraction">
+                    <h6>
+                        案内
+                    </h6>
+                    <p>Discordに移動してね〜</p>
+                </div>
+            </div>
+            <!-- マッチ開始ボタンを設置 -->
+            <div class="ui center aligned container">
+                <a id="matchButton" class="ui button orange big">マッチ開始</a>
+            </div>
+
+            
+        </div>
+    </main>
+<!-- これは一旦無視で -->
+<!-- 
+    <script>
+        document.getElementById("matchButton").addEventListener("click", function () {
+            // マッチ開始ボタンがクリックされたときの処理
+
+            fetch('/match', {
+                method: 'POST',
+
+            })
+
+                .then(response => response.json())
+                .then(data => {
+                    // マッチング中の表示
+                    document.getElementById("matchButton").innerText = "マッチ中 / キャンセル";
+                    // マッチング結果を非同期で処理(3秒後に表示)
+                    setTimeout(() => {
+                        if (data.matched_users) {
+                            // マッチング結果を表示する
+                            alert("マッチングに成功")
+                            displayMatchResults(data.matched_users);
+                        } else {
+                            alert("マッチングに失敗しました。再試行してください。");
+                        }
+                        // マッチボタンを戻す
+                        document.getElementById("matchButton").innerText = "マッチする";
+                    }, 3000);
+                });
+        });
+
+        function displayMatchResults(matchedUsers) {
+            const matchedUsersList = document.getElementById("matchedUsers");
+            matchedUsersList.innerHTML = ""; // マッチング結果をクリア
+
+            // マッチングされたユーザーの情報をリストに追加
+            matchedUsers.forEach(userId => {
+                const listItem = document.createElement("li");
+                listItem.textContent = "ユーザーID: " + userId;
+                matchedUsersList.appendChild(listItem);
+            });
+
+            // マッチング結果を表示
+            document.getElementById("matchResult").style.display = "block";
+        }
+    </script> -->
+</body>
+
+</html>
