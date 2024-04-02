@@ -17,7 +17,7 @@
             padding: 20px;
             margin-top: 20px;
             display: flex;
-    flex-direction: column;
+            flex-direction: column;
 
         }
 
@@ -25,9 +25,62 @@
             margin-top: 0.5rem;
             text-align: center;
         }
+
+        #match-result {
+            border: 2px solid #fff; /* 枠線 */
+            border-radius: 5px; /* 角を丸める */
+            padding: 5px; /* 内側の余白 */
+            margin-top: 10px; /* 上部のマージン */
+            width: 8%; /* 幅を100%にする */
+            font-size: 15px;
+        }
+
+        label[for="match-result"] {
+            margin-left: 4rem;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        form {
+            margin: 2rem;
+            font-size: 16px;
+        }
+
+        .report-div {
+            margin: 2rem;
+            padding: 3rem 4rem;
+            background-color: gray;
+            border: 2px solid #fafafa;
+            border-radius: 10px;
+        }
+
+        #player-name {
+            border: 2px solid #fff; /* 枠線 */
+            border-radius: 5px; /* 角を丸める */
+            padding: 5px; /* 内側の余白 */
+            margin-top: 10px; /* 上部のマージン */
+            width: 40%; /* 幅を100%にする */
+            font-size: 15px;
+        }
+        #player-name::placeholder {
+            color: #c5c5c5; 
+        }
+
+        #misconduct {
+            border: 2px solid #fff; /* 枠線 */
+            border-radius: 5px; /* 角を丸める */
+            padding: 5px; 
+            margin-top: 10px;
+            font-size: 15px;
+        }
+        #misconduct::placeholder {
+            color: #c5c5c5; 
+        }
+
         /* ボタン全体のスタイル */
         button {
-            display: inline-block;
+            display: block;
+            margin: 0 auto;
             padding: 10px 20px; /* 上下左右の余白 */
             font-size: 16px; /* フォントサイズ */
             /*font-weight: bold; /* 太字 */
@@ -70,6 +123,7 @@
     </div>
     <form>
         <!-- TODO: 選択がもっとしやすいようにしてほしい -->
+        <div class="match-result">
         <label for="match-result">マッチ結果:</label>
         <select id="match-result" name="match-result">
             <option value="4逃げ">4逃げ</option>
@@ -81,20 +135,30 @@
             <option value="残2">残2</option>
             <option value="残3以上">残3以上</option>
         </select>
-        <!--TODO: 縦で表示されるようにしてほしい -->
-        <!-- TODO: デザイン性を持たせて欲しい -->
+        </div>
         <div class="report-div">
             <label for="player-name">迷惑行為のプレイヤー名:</label>
-            <input type="text" id="player-name" name="player-name">
+            <input type="text" id="player-name" name="player-name" placeholder="入力してください">
 
             <label for="misconduct">煽り行為:</label>
-            <textarea id="misconduct" name="misconduct"></textarea>
+            <!-- こっちもセレクトにしたいと言ってたので一応作っておきました！ -->
+            <select id="misconduct" name="misconduct">
+                <option value="チート行為">チート行為</option>
+                <option value="サバイバーとキラーの談合">サバイバーとキラーの談合</option>
+                <option value="その他迷惑行為">その他迷惑行為</option>
+                <!-- <option value="あ">あ</option>
+                <option value="い">い</option>
+                <option value="う">う</option>
+                <option value="え">え</option>
+                <option value="お">お</option> -->
+            </select>
+            <textarea id="misconduct" name="misconduct" placeholder="その他の迷惑行為を入力してください"></textarea>
 
             <label for="evidence">証拠動画:</label>
             <input type="file" id="evidence" name="evidence">
         </div>
         <!--TODO: もっと押しやすいようなボタンにしてほしい -->
-        <button onclick="redirectToUmidaichi()">報告する</button>
+        <button onclick="redirectToResult()">報告する</button>
         <!--<input type="submit" value="報告する"> -->
     </form>
 </body>
