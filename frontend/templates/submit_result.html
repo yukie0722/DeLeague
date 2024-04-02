@@ -16,6 +16,35 @@
             background-color: #808080;
             padding: 20px;
             margin-top: 20px;
+            display: flex;
+    flex-direction: column;
+
+        }
+
+        .title h1 {
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        /* ボタン全体のスタイル */
+        button {
+            display: inline-block;
+            padding: 10px 20px; /* 上下左右の余白 */
+            font-size: 16px; /* フォントサイズ */
+            /*font-weight: bold; /* 太字 */
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: rgb(148, 5, 5); /* ボタンの背景色 */
+            color: #fff; /* ボタンの文字色 */
+            border: 2px solid red; /* ボタンの枠線 */
+            border-radius: 5px; /* ボタンの角を丸める */
+            margin-top: 30px;
+        }
+        /* ボタンにホバー時のスタイルを追加 */
+        button:hover {
+            background-color: rgb(130, 5, 5); /* ホバー時の背景色 */
+            border-color: rgb(200, 5, 5); /* ホバー時の枠線色 */
+            color: #fff; /* ホバー時の文字色 */
         }
     </style>
 </head>
@@ -36,7 +65,9 @@
 
         </div>
     </header>
-    <h1>結果登録</h1>
+    <div class="title">
+        <h1>結果登録</h1>
+    </div>
     <form>
         <!-- TODO: 選択がもっとしやすいようにしてほしい -->
         <label for="match-result">マッチ結果:</label>
@@ -63,7 +94,8 @@
             <input type="file" id="evidence" name="evidence">
         </div>
         <!--TODO: もっと押しやすいようなボタンにしてほしい -->
-        <input type="submit" value="報告する">
+        <button onclick="redirectToUmidaichi()">報告する</button>
+        <!--<input type="submit" value="報告する"> -->
     </form>
 </body>
 </html>
