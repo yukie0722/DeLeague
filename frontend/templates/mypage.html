@@ -88,6 +88,10 @@
             font-size: 30px;
             text-align: center;
         }
+
+        #select-btn {
+            justify-content: center;
+        }
     </style>
     <title>マイページ</title>
 </head>
@@ -117,7 +121,7 @@
             </div>
             <!-- TODO: なんかこれ上手く選択できるようにJavaScriptを考えてみて -->
             <!-- aタグが押されたら押された方をitem activeにするみたいなコード書けば上手く切り替わると思う -->
-            <div class="ui tabular menu">
+            <div class="ui tabular menu" id="select-btn">
                 <a class="item active">
                   Bio
                 </a>
@@ -174,6 +178,23 @@
         </div>
 
     </main>
+
+    <script>
+        const selectBtn = document.getElementById('select-btn');
+        const tabs = selectBtn.getElementsByTagName('a');
+
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener('click', function() {
+                // Remove active class from all tabs
+                for (let j = 0; j < tabs.length; j++) {
+                    tabs[j].classList.remove('active');
+                }
+
+                // Add active class to the clicked tab
+                this.classList.add('active');
+            });
+        }
+    </script>
 </body>
 
 </html>
