@@ -11,14 +11,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.0/dist/semantic.min.css">
     <title>DeLeague</title>
     <style>
-
         .report-div {
             background-color: #808080;
             padding: 20px;
             margin-top: 20px;
             display: flex;
             flex-direction: column;
-
         }
 
         .title h1 {
@@ -31,10 +29,17 @@
             border-radius: 5px; /* 角を丸める */
             padding: 5px; /* 内側の余白 */
             margin-top: 10px; /* 上部のマージン */
-            width: 8%; /* 幅を100%にする */
+            width: 8%;
             font-size: 15px;
         }
+        .match-result {
+            display: flex;
+            align-items: baseline;
+        }
 
+        label {
+            margin-top: 1.3rem;
+        }
         label[for="match-result"] {
             margin-left: 4rem;
             font-weight: bold;
@@ -59,7 +64,7 @@
             border-radius: 5px; /* 角を丸める */
             padding: 5px; /* 内側の余白 */
             margin-top: 10px; /* 上部のマージン */
-            width: 40%; /* 幅を100%にする */
+            width: 40%;
             font-size: 15px;
         }
         #player-name::placeholder {
@@ -77,27 +82,24 @@
             color: #c5c5c5; 
         }
 
-        /* ボタン全体のスタイル */
         button {
             display: block;
             margin: 0 auto;
-            padding: 10px 20px; /* 上下左右の余白 */
-            font-size: 16px; /* フォントサイズ */
-            /*font-weight: bold; /* 太字 */
+            padding: 10px 20px;
+            font-size: 16px;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
-            background-color: rgb(148, 5, 5); /* ボタンの背景色 */
-            color: #fff; /* ボタンの文字色 */
-            border: 2px solid red; /* ボタンの枠線 */
-            border-radius: 5px; /* ボタンの角を丸める */
+            background-color: rgb(148, 5, 5);
+            color: #fff; 
+            border: 2px solid red;
+            border-radius: 5px;
             margin-top: 30px;
         }
-        /* ボタンにホバー時のスタイルを追加 */
         button:hover {
-            background-color: rgb(130, 5, 5); /* ホバー時の背景色 */
-            border-color: rgb(200, 5, 5); /* ホバー時の枠線色 */
-            color: #fff; /* ホバー時の文字色 */
+            background-color: rgb(130, 5, 5);
+            border-color: rgb(200, 5, 5);
+            color: #fff;
         }
     </style>
 </head>
@@ -122,9 +124,9 @@
         <h1>結果登録</h1>
     </div>
     <form>
-        <!-- TODO: 選択がもっとしやすいようにしてほしい -->
+        <!-- TODO済: 選択がもっとしやすいようにしてほしい -->
         <div class="match-result">
-        <label for="match-result">マッチ結果:</label>
+        <label for="match-result">マッチ結果：</label>
         <select id="match-result" name="match-result">
             <option value="4逃げ">4逃げ</option>
             <option value="3逃げ">3逃げ</option>
@@ -157,7 +159,7 @@
             <label for="evidence">証拠動画:</label>
             <input type="file" id="evidence" name="evidence">
         </div>
-        <!--TODO: もっと押しやすいようなボタンにしてほしい -->
+        <!--TODO済: もっと押しやすいようなボタンにしてほしい -->
         <button onclick="redirectToResult()">報告する</button>
         <!--<input type="submit" value="報告する"> -->
     </form>

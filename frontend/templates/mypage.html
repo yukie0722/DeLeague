@@ -19,16 +19,8 @@
             text-align: center;
             max-width: 100%;
             margin: 0 auto;
-
             border-radius: 10px;
         }
-
-        /*.mainsquare {
-            border-left: 2px solid dimgray;
-            border-right: 2px solid dimgray;
-            border-radius: 10px;
-        }*/
-
         .square {
             margin: 4rem;
             padding: 2rem;
@@ -39,18 +31,18 @@
 
         .user_name {
             padding: 0px 40px 0 80px;
-            text-decoration: underline;
-            /* 下に線を引きたい */
+            /* 済 下に線を引きたい */
         }
 
         .border {
-            border-bottom: 1px solid #000;
-            margin-top: 40px;
+            border-bottom: 2px solid #4b4b4b;
+            margin: 20px 0px;
         }
 
         .user_info h1 {
             margin: 0 20px;
             text-align: left;
+            text-decoration: underline;
         }
 
         .rating {
@@ -60,7 +52,6 @@
             text-align: center;
             font-size: 18px;
         }
-
         .rating table {
             background-color: dimgray;
         }
@@ -68,25 +59,35 @@
         .matchdata h1{
             text-align: left;
             margin-left: 6rem;
+            text-decoration: underline;
         }
 
         .ratinggraph h1{
             text-align: left;
             margin-left: 6rem;
+            text-decoration: underline;
         }
 
         .flex-row {
             display: flex;
             justify-content: space-between;
-            /* max-width: 70%;
-            margin: 0 auto; */
-            padding: 0 40px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px 0px 0px 0px;
+        }
+        .flex-row h5 {
+            font-size: 20px;
+            text-decoration: underline;
         }
         .flex-row li {
             margin: 0 10px;
             list-style: none;
             font-size: 30px;
             text-align: center;
+        }
+        
+        .square h6 {
+            font-size: 20px;
         }
 
         #select-btn {
@@ -119,7 +120,7 @@
             <div class="title">
                 <h1>アカウント情報</h1>
             </div>
-            <!-- TODO: なんかこれ上手く選択できるようにJavaScriptを考えてみて -->
+            <!-- TODO 済?: なんかこれ上手く選択できるようにJavaScriptを考えてみて -->
             <!-- aタグが押されたら押された方をitem activeにするみたいなコード書けば上手く切り替わると思う -->
             <div class="ui tabular menu" id="select-btn">
                 <a class="item active">
@@ -134,30 +135,30 @@
                     <div class="user_info">
                         <div class="user_name">
                             <h1>ユーザー名</h1>
-                            <h1>{{ user.username }}</h1>
+                            <h2>{{ user.username }}</h2>
                             <div class="border"></div>
                             <ul class="flex-row">
                                 <li>
-                                    <h6>レート</h6>
+                                    <h5>レート</h5>
                                     <h6>{{ rating.rate }}</h6>
                                 </li>
                                 <li>
-                                    <h6>最高レート</h6>
+                                    <h5>最高レート</h5>
                                     <h6>{{ rating.max_rate }}</h6>
                                 </li>
                                 <li>
-                                    <h6>ランクマッチ数</h6>
+                                    <h5>ランクマッチ数</h5>
                                     <h6>{{ rating.rank_matches }}</h6>
                                 </li>
                                 <li>
-                                    <h6>ランクマッチ勝利数</h6>
+                                    <h5>ランクマッチ勝利数</h5>
                                     <h6>{{ rating.rank_wins }}</h6>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                <!-- 以降マッチ履歴とレーティンググラフのdivを作っておいて適当にはっつけておいてほしい -->
+                <!-- 済 以降マッチ履歴とレーティンググラフのdivを作っておいて適当にはっつけておいてほしい -->
             
                 </div>
             </div>
@@ -165,14 +166,14 @@
             <div class="square">
                 <div class="matchdata">
                     <h1>マッチ履歴</h1>
-                    <h1>{{ }}</h1>
+                    <h6>{{ }}</h6>
                 </div>
             </div>
 
             <div class="square">
                 <div class="ratinggraph">
                     <h1>レーティング推移グラフ</h1>
-                    <h1>{{ }}</h1>
+                    <h6>{{ }}</h6>
                 </div>
             </div>
         </div>

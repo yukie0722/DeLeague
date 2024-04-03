@@ -27,52 +27,81 @@
             border-radius: 10px;
             border: 2px solid #fafafa;
         }
+        .user_info h1 {
+            margin-left: 20px;
+            text-align: left;
+            font-size: 27px;
+        }
 
         .user_name {
-            padding: 40px 40px 0 40px;
+            padding: 40px 100px 0px 40px;
+            display: flex;
+            justify-content: space-between; /* 要素を左右に均等に配置 */
+            height: 280.0px; /* 縦幅を指定 */
+            line-height: normal; /* 文字の間隔をリセット */
+        }
+        .user_name h4 {
             text-decoration: underline;
-            /* 下に線を引きたい */
+            text-decoration-color: rgb(1, 25, 1);
+            margin-top: 2rem;
+            text-align: left;
+            font-size: 23px;
+            color: rgb(1, 44, 1);
+        }
+        .killer_name {
+            padding: 0px 100px 0px 425px;
+            display: flex;
+            justify-content: space-between; /* 要素を左右に均等に配置 */
+            height: 130.0px; /* 縦幅を指定 */
+            line-height: normal; /* 文字の間隔をリセット */
+            margin-bottom: 30px;
+        }
+        .killer_name h4 {
+            text-decoration: underline;
+            text-decoration-color: rgb(59, 2, 13);
+            margin-top: 2rem;
+            font-size: 23px;
+            color: rgb(99, 3, 22);
+        }
+        .match-member {
+            font-size: 22px;
+            line-height: 0;
+            padding-left: 10px;
+            margin-right: 0;
+        }
+        .match-member li {
+            list-style: none;
+            font-size: 22px;
+            text-align: left;
+            line-height: 0.5; /* 行間を狭くするための値を設定 */
         }
 
         .border {
-            border-bottom: 1px solid #000;
-            margin-top: 40px;
+            border-bottom: 2px solid #4b4b4b;
+            margin: 0px 40px;
         }
 
-        .user_info h1 {
-            margin: 0 20px;
-            text-align: left;
+        .insutraction h6 {
+            font-size: 19px;
+            height: 0px; /* 縦幅を指定 */
+            line-height: normal; /* 文字の間隔をリセット */
+        }
+        .insutraction p {
+            font-size: 16px;
         }
 
-        .flex-row {
-            display: flex;
-            justify-content: space-between;
-            /* max-width: 70%;
-            margin: 0 auto; */
-            padding: 0 40px;
-
-        }
-
-        .flex-row li {
-            margin: 0 10px;
-            list-style: none;
-            font-size: 30px;
-            text-align: center;
-        }
-
-        #matchResult {
+        /* #matchResult {
             background-color: #000;
             margin-top: 50px;
             text-align: center;
             color: #fafafa;
         }
-
         #matchResult li {
             margin: 30px 0;
             list-style: none;
             font-size: 20px;
             text-align: center;
-        }
+        } */
     </style>
 </head>
 
@@ -100,19 +129,69 @@
             {% for rating in ratings %}
             <div class="user_info">
                 <div class="user_name">
-                    <!-- TODO: マッチメンバーを上手いこと配置してほしい -->
+                    <!-- TODO 済 : マッチメンバーを上手いこと配置してほしい -->
                     <h1>マッチメンバー</h1>
-                    
-                    
-                    <div class="border"></div>
+                    <ul class="match-member">
+                        <h4>サバイバー名</h4>
+                        <li>
+                            <h6>{{ メンバー１ }}</h6>
+                        </li>
+                        <li>
+                            <h6>{{ メンバー２ }}</h6>
+                        </li>
+                        <li>
+                            <h6>{{ メンバー３ }}</h6>
+                        </li>
+                        <li>
+                            <h6>{{ メンバー４ }}</h6>
+                        </li>
+                    </ul>
+                <!-- </div>
+
+                <div class="user_name"> -->
+                    <ul class="match-member">
+                        <h4>平均レート値</h4>
+                        <li>
+                            <h6>{{メンバー１.rate}}</h6>
+                        </li>
+                        <li>
+                            <h6>{{メンバー２.rate}}</h6>
+                        </li>
+                        <li>
+                            <h6>{{メンバー３.rate}}</h6>
+                        </li>
+                        <li>
+                            <h6>{{メンバー４.rate}}</h6>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- TODO: ここのデザインも上手く変えて欲しい -->
+                <div class="killer_name">
+                    <ul class="match-member">
+                        <h4>キラー名</h4>
+                        <li>
+                            <h6>{{ キラー名 }}</h6>
+                        </li>
+                    </ul>
+                <!-- </div>
+
+                <div class="user_name"> -->
+                    <ul class="match-member">
+                        <h4>レート値</h4>
+                        <li>
+                            <h6>{{キラー.rate}}</h6>
+                        </li>
+                    </ul>
+                </div>
+                <div class="border"></div>
+            
+
+                <!-- TODO 済: ここのデザインも上手く変えて欲しい -->
                 <div class="insutraction">
                     <h6>
                         案内
                     </h6>
-                    <p>Discordに移動してね〜</p>
+                    <p>Discordに移動してください。</p>
                 </div>
             </div>
             <!-- マッチ開始ボタンを設置 -->
