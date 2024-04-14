@@ -28,51 +28,48 @@
             border: 2px solid #fafafa;
         }
         .user_info h1 {
-            margin-left: 20px;
+            margin: 2.5rem 2rem 1rem 4rem;
             text-align: left;
-            font-size: 27px;
+            font-size: 28px;
         }
 
         .user_name {
-            padding: 40px 100px 0px 40px;
+            margin: 0rem 3rem;
             display: flex;
-            justify-content: space-between; /* 要素を左右に均等に配置 */
+            justify-content: space-around;
             height: 280.0px; /* 縦幅を指定 */
             line-height: normal; /* 文字の間隔をリセット */
         }
         .user_name h4 {
             text-decoration: underline;
             text-decoration-color: rgb(1, 25, 1);
-            margin-top: 2rem;
             text-align: left;
-            font-size: 23px;
+            font-size: 24px;
             color: rgb(1, 44, 1);
         }
         .killer_name {
-            padding: 0px 100px 0px 425px;
+            margin: 0rem 3rem 2rem 3rem;
             display: flex;
-            justify-content: space-between; /* 要素を左右に均等に配置 */
+            justify-content: space-around;
             height: 130.0px; /* 縦幅を指定 */
             line-height: normal; /* 文字の間隔をリセット */
-            margin-bottom: 30px;
         }
         .killer_name h4 {
             text-decoration: underline;
             text-decoration-color: rgb(59, 2, 13);
-            margin-top: 2rem;
-            font-size: 23px;
+            font-size: 24px;
             color: rgb(99, 3, 22);
         }
-        .match-member {
-            font-size: 22px;
-            line-height: 0;
-            padding-left: 10px;
-            margin-right: 0;
+        .killer_name h6 {
+            font-size: 18px;
+        }
+        .match-member h6 {
+            font-size: 18px;
         }
         .match-member li {
             list-style: none;
             font-size: 22px;
-            text-align: left;
+            text-align: center;
             line-height: 0.5; /* 行間を狭くするための値を設定 */
         }
 
@@ -82,7 +79,7 @@
         }
 
         .insutraction h6 {
-            font-size: 19px;
+            font-size: 20px;
             height: 0px; /* 縦幅を指定 */
             line-height: normal; /* 文字の間隔をリセット */
         }
@@ -114,7 +111,6 @@
             <a class="item" href="index.html">トップページ</a>
             <a class="item" href="match.html">ランクマッチ</a>
             <a class="item" href="mypage.html">マイページ</a>
-            <a class="item" href="submit_result.html">結果登録ページ</a>
             <a class="item" href="rules.html">ルール掲載ページ</a>
             <div class="right menu">
                 <a class="ui item" href="index.html">ログアウト</a>
@@ -128,22 +124,22 @@
             <!-- ユーザー情報を出力 -->
             {% for rating in ratings %}
             <div class="user_info">
+                <!-- TODO 済 : マッチメンバーを上手いこと配置してほしい -->
+                <h1>マッチメンバー</h1>
                 <div class="user_name">
-                    <!-- TODO 済 : マッチメンバーを上手いこと配置してほしい -->
-                    <h1>マッチメンバー</h1>
                     <ul class="match-member">
                         <h4>サバイバー名</h4>
                         <li>
-                            <h6>{{ メンバー１ }}</h6>
+                            <h6>{{ member1 }}</h6>
                         </li>
                         <li>
-                            <h6>{{ メンバー２ }}</h6>
+                            <h6>{{ member2 }}</h6>
                         </li>
                         <li>
-                            <h6>{{ メンバー３ }}</h6>
+                            <h6>{{ member3 }}</h6>
                         </li>
                         <li>
-                            <h6>{{ メンバー４ }}</h6>
+                            <h6>{{ member4 }}</h6>
                         </li>
                     </ul>
                 <!-- </div>
@@ -152,16 +148,7 @@
                     <ul class="match-member">
                         <h4>平均レート値</h4>
                         <li>
-                            <h6>{{メンバー１.rate}}</h6>
-                        </li>
-                        <li>
-                            <h6>{{メンバー２.rate}}</h6>
-                        </li>
-                        <li>
-                            <h6>{{メンバー３.rate}}</h6>
-                        </li>
-                        <li>
-                            <h6>{{メンバー４.rate}}</h6>
+                            <h6>{{ rate.average }}</h6>
                         </li>
                     </ul>
                 </div>
@@ -170,7 +157,7 @@
                     <ul class="match-member">
                         <h4>キラー名</h4>
                         <li>
-                            <h6>{{ キラー名 }}</h6>
+                            <h6>{{ killername }}</h6>
                         </li>
                     </ul>
                 <!-- </div>
@@ -179,7 +166,7 @@
                     <ul class="match-member">
                         <h4>レート値</h4>
                         <li>
-                            <h6>{{キラー.rate}}</h6>
+                            <h6>{{ rate.killer }}</h6>
                         </li>
                     </ul>
                 </div>
@@ -202,6 +189,15 @@
             
         </div>
     </main>
+
+    <script>
+        document.getElementById("matchButton").addEventListener("click", function() {
+            window.location.href = "submit_result.html"; 
+        });
+    </script>
+    
+
+
 <!-- これは一旦無視で -->
 <!-- 
     <script>

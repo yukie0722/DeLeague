@@ -11,14 +11,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.0/dist/semantic.min.css">
     <title>DeLeague</title>
     <style>
-        .report-div {
-            background-color: #808080;
-            padding: 20px;
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-
         .title h1 {
             margin-top: 0.5rem;
             text-align: center;
@@ -28,12 +20,14 @@
             border: 2px solid #fff; /* 枠線 */
             border-radius: 5px; /* 角を丸める */
             padding: 5px; /* 内側の余白 */
-            margin-top: 10px; /* 上部のマージン */
-            width: 8%;
-            font-size: 15px;
+            margin-top: 30px; /* 上部のマージン */
+            width: 9%;
+            font-size: 20px;
+            text-align: center;
         }
         .match-result {
             display: flex;
+            justify-content: center;
             align-items: baseline;
         }
 
@@ -41,9 +35,9 @@
             margin-top: 1.3rem;
         }
         label[for="match-result"] {
-            margin-left: 4rem;
+            margin-left: 6rem;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 22px;
         }
 
         form {
@@ -52,8 +46,10 @@
         }
 
         .report-div {
-            margin: 2rem;
+            margin: 3rem 8rem 2rem 8rem;
             padding: 3rem 4rem;
+            display: flex;
+            flex-direction: column;
             background-color: gray;
             border: 2px solid #fafafa;
             border-radius: 10px;
@@ -112,7 +108,6 @@
             <a class="item" href="index.html">トップページ</a>
             <a class="item" href="match.html">ランクマッチ</a>
             <a class="item" href="mypage.html">マイページ</a>
-            <a class="item" href="submit_result.html">結果登録ページ</a>
             <a class="item" href="rules.html">ルール掲載ページ</a>
             <div class="right menu">
                 <a class="ui item" href="index.html">ログアウト</a>
